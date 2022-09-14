@@ -9,6 +9,8 @@ tabs_title=["Emotion-detection","          ","Hand-detection","           ","Abo
 
 tabs=st.tabs(tabs_title)
 with tabs[0]:
+    notice="<p><b style='color:red;'>Instruction :</b>Sit on good place not in dark <br> if any problem occurs refresh the page or mail us at 'hrithikpaul2001@gmail.com' ,<br> Also click 'Select device' for selecting the device <br> Allow to give access </p>"
+    st.markdown(notice,unsafe_allow_html=True)
     mpDraw=mp.solutions.drawing_utils
     mpface=mp.solutions.face_mesh
     facemesh=mpface.FaceMesh(max_num_faces=2)
@@ -85,6 +87,8 @@ with tabs[0]:
     )
 with tabs[2]:
     col1, col2 = st.columns(2)
+    notice="<p><b style='color:red;'>Instruction :</b>Sit on good place not in dark <br> if any problem occurs refresh the page or mail us at 'hrithikpaul2001@gmail.com' ,<br> Also click 'Select device' for selecting the device <br> Allow to give access </p>"
+    st.markdown(notice,unsafe_allow_html=True)
     with col1:
         mphands=mp.solutions.hands
         hands=mphands.Hands()
@@ -164,7 +168,7 @@ with tabs[2]:
         
         st.image("sia.png",caption="Hand-sign",width=250)
 with tabs[4]:
-    st.write("about")
+    st.write("Hey! We are presenting our concept of Hrithik Paul, Sayani Ghatak and Devashis Show which is based on Air Gesture. Our scheme will be useful for all but especially for senior citizens and disabled persons.This platform is completely unique and modern. This smart automation will help them to use computers. No human will be left behind.Stay Stunt…")
 
 hide_streamlit_style = """
             <style>
