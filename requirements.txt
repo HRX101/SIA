@@ -6,3 +6,4 @@ numpy
 mediapipe
 keras 
 tensorflow
+legacy_caching
