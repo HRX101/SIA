@@ -6,7 +6,7 @@ import mediapipe as mp
 from streamlit_webrtc import RTCConfiguration, webrtc_streamer,VideoTransformerBase
 st.title("SIA")
 tabs_title=["Emotion-detection","          ","Hand-detection","           ","About"]
-
+clear_cache()
 tabs=st.tabs(tabs_title)
 with tabs[0]:
     notice="<p><b style='color:red;'>Instruction :</b>Sit on good place not in dark <br> if any problem occurs refresh the page or mail us at 'hrithikpaul2001@gmail.com' ,<br> Also click 'Select device' for selecting the device <br> Allow to give access </p>"
