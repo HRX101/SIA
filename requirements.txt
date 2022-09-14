@@ -5,3 +5,4 @@ streamlit_webrtc
 numpy
 mediapipe
 keras 
+tensorflow
