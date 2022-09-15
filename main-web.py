@@ -15,7 +15,7 @@ with tabs[0]:
     facemesh=mpface.FaceMesh(max_num_faces=2)
     drawspec=mpDraw.DrawingSpec(thickness=1,circle_radius=1)
 
-"""
+
     model=load_model("model_emotion.hdf5")
     class VideoTransformer(VideoTransformerBase):
     
@@ -84,7 +84,7 @@ with tabs[0]:
                     {"iceServers":[{"urls":["stun:stun.l.google.com:19302"]}]}
                 )
     )
-"""
+
 with tabs[2]:
     col1, col2 = st.columns(2)
     notice="<p><b style='color:red;'>Instruction :</b>Sit on good place not in dark <br> if any problem occurs refresh the page or mail us at 'hrithikpaul2001@gmail.com' ,<br> Also click 'Select device' for selecting the device <br> Allow to give access </p>"
