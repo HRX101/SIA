@@ -8,6 +8,10 @@ from streamlit_webrtc import  WebRtcMode,RTCConfiguration,webrtc_streamer,VideoT
 st.title("SIA")
 tabs_title=["Emotion-detection","          ","Hand-detection","           ","About"]
 tabs=st.tabs(tabs_title)
+@st.cache
+def loadmodel(k):
+	  return load_model(k)
+
 RTC_CONFIGURATION = RTCConfiguration(
     {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
 )
@@ -20,7 +24,7 @@ with tabs[0]:
 
     h="<p>none</p>"
     st.markdown(notice,unsafe_allow_html=True)
-    model=load_model("model_emotion.hdf5")
+    model=loadmodel("model_emotion.hdf5")
     class VideoTransformer(VideoTransformerBase):    
         def recv(self, frame):
             value=0
@@ -76,7 +80,7 @@ with tabs[2]:
         mphands=mp.solutions.hands
         hands=mphands.Hands()
         mpDraw=mp.solutions.drawing_utils
-        model=load_model("model_hand2.hdf5")
+        model=loadmodel("model_hand2.hdf5")
         class VideoTransformer(VideoTransformerBase):        
             def recv(self, frame):
                 value=0
