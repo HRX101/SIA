@@ -1,4 +1,4 @@
-streamlit==1.11.1
+streamlit==1.4.0
 opencv-contrib-python-headless==4.6.0.66
 opencv-python==4.6.0.66
 streamlit-webrtc==0.43.4
