@@ -4,10 +4,13 @@ import cv2
 import av
 from keras.models import load_model
 import mediapipe as mp
-from streamlit_webrtc import  webrtc_streamer,VideoTransformerBase
+from streamlit_webrtc import  WebRtcMode,RTCConfiguration,webrtc_streamer,VideoTransformerBase
 st.title("SIA")
 tabs_title=["Emotion-detection","          ","Hand-detection","           ","About"]
 tabs=st.tabs(tabs_title)
+RTC_CONFIGURATION = RTCConfiguration(
+    {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
+)
 with tabs[0]:
     mpDraw=mp.solutions.drawing_utils
     mpface=mp.solutions.face_mesh
@@ -64,7 +67,7 @@ with tabs[0]:
                         #cv2.putText(image,str(confiedence),(30,220),cv2.FONT_HERSHEY_SIMPLEX,1,(255, 0, 0),1)
     
             return av.VideoFrame.from_ndarray(image,format="bgr24")
-    webrtc_streamer(key="key0", video_processor_factory=VideoTransformer)
+    webrtc_streamer(key="key0", video_processor_factory=VideoTransformer,rtc_configuration=RTC_CONFIGURATION,async_processing=True,mode=WebRtcMode.SENDRECV)
 with tabs[2]:
     notice="<p><b style='color:red;'>Instruction :</b>Sit on good place not in dark <br> if any problem occurs refresh the page or mail us at 'hrithikpaul2001@gmail.com' ,<br> Also click 'Select device' for selecting the device <br> Allow to give access </p>"
     st.markdown(notice,unsafe_allow_html=True)
@@ -120,7 +123,7 @@ with tabs[2]:
                                 #cv2.putText(image,str(confiedence),(110,110),cv2.FONT_HERSHEY_SIMPLEX,2,(255, 0, 0),2)
                             
                 return av.VideoFrame.from_ndarray(image,format="bgr24")
-        webrtc_streamer(key="key", video_processor_factory=VideoTransformer)
+        webrtc_streamer(key="key", video_processor_factory=VideoTransformer,rtc_configuration=RTC_CONFIGURATION,async_processing=True,mode=WebRtcMode.SENDRECV)
     with col2:
         
         st.image("sia.png",caption="Hand-sign",width=250)
